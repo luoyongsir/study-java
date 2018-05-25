@@ -32,12 +32,12 @@
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-core</artifactId>
-            <version>1.19</version>
+            <version>1.21</version>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>
             <artifactId>jmh-generator-annprocess</artifactId>
-            <version>1.19</version>
+            <version>1.21</version>
             <scope>provided</scope>
         </dependency>
 
@@ -46,14 +46,14 @@
 	<repositories>
 		<repository>
 			<id>nexus-aliyun</id>
-			<name>Nexus aliyun</name>
+			<name>Nexus Aliyun</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>
 		<pluginRepository>
 			<id>nexus-aliyun</id>
-			<name>Nexus aliyun</name>
+			<name>Nexus Aliyun</name>
 			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
 		</pluginRepository>
 	</pluginRepositories>
@@ -64,6 +64,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
+				<version>1.6.0</version>
                 <executions>
                     <execution>
                         <id>run-benchmarks</id>

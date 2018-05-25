@@ -15,8 +15,8 @@ import java.util.concurrent.TimeUnit;
  * @date 2018/5/14
  */
 @BenchmarkMode(Mode.Throughput)
-@Warmup(iterations = 2)
-@Threads(2)
+@Warmup(iterations = 5)
+@Threads(8)
 @OutputTimeUnit(TimeUnit.MILLISECONDS)
 @Measurement(iterations = 6, time = 3, timeUnit = TimeUnit.SECONDS)
 public class StringBuilderTest {
