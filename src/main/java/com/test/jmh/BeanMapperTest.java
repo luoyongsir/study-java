@@ -26,6 +26,10 @@ import java.util.concurrent.TimeUnit;
  * BeanMapperTest.testDozer   thrpt    8   157457.193 ±   7219.254  ops/s <br/>
  * BeanMapperTest.testOrika   thrpt    8  2968882.380 ±  90117.407  ops/s <br/>
  * BeanMapperTest.testSpring  thrpt    8  2230255.042 ± 177015.963  ops/s <br/>
+ *
+ * 注意：orika在创建某个类的那些反射代码时，有并发问题bug，到目前1.5.2版本尚未解决 <br/>
+ * 		Spring的BeanUtils是浅复制
+ *
  * @author luoyong
  * @date 2018/5/14
  */
