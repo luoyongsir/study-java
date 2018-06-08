@@ -23,13 +23,11 @@ import java.util.concurrent.TimeUnit;
  * SerializationTest.testProtoStuff  thrpt    8  6086.991 ± 100.611  ops/ms <br/>
  *
  * 四线程测试结果：<br/>
- * Benchmark                          Mode  Cnt     Score     Error   Units <br/>
  * SerializationTest.testJackson     thrpt    8  2390.564 ±  69.634  ops/ms <br/>
  * SerializationTest.testFastJson    thrpt    8  4475.584 ± 127.814  ops/ms <br/>
  * SerializationTest.testProtoStuff  thrpt    8  5981.933 ± 174.275  ops/ms <br/>
  *
  * 单线程测试结果：<br/>
- * Benchmark                          Mode  Cnt     Score    Error   Units <br/>
  * SerializationTest.testJackson     thrpt    8   631.153 ±  4.157  ops/ms <br/>
  * SerializationTest.testFastJson    thrpt    8  1173.026 ±  9.020  ops/ms <br/>
  * SerializationTest.testProtoStuff  thrpt    8  1657.712 ± 32.433  ops/ms <br/>
