@@ -2,8 +2,8 @@ package com.test.jmh;
 
 import com.test.utils.BeanDozerMapper;
 import com.test.utils.BeanOrikaMapper;
-import com.test.vo.BootPopup;
 import com.test.vo.BootPopupVO;
+import com.test.vo.BuildUtil;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
@@ -11,7 +11,6 @@ import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.springframework.beans.BeanUtils;
 
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -48,32 +47,17 @@ public class BeanMapperTest {
 
 	@Benchmark
 	public void testDozer() {
-		BootPopupVO bpv = BeanDozerMapper.map(bootPopup, BootPopupVO.class);
+		BootPopupVO bpv = BeanDozerMapper.map(BuildUtil.getBootPopup(), BootPopupVO.class);
 	}
 
 	@Benchmark
 	public void testOrika() {
-		BootPopupVO bpv = BeanOrikaMapper.map(bootPopup, BootPopupVO.class);
+		BootPopupVO bpv = BeanOrikaMapper.map(BuildUtil.getBootPopup(), BootPopupVO.class);
 	}
 
 	@Benchmark
 	public void testSpring() {
 		BootPopupVO bpv = new BootPopupVO();
-		BeanUtils.copyProperties(bootPopup, bpv);
-	}
-
-	private static BootPopup bootPopup;
-	static {
-		bootPopup = new BootPopup();
-		bootPopup.setId(1);
-		bootPopup.setStatus((byte) 1);
-		bootPopup.setPopupName("对象复制性能测试");
-		bootPopup.setStartTime(new Date());
-		bootPopup.setShowTime((byte) 5);
-		bootPopup.setPicUrl("https://www.baidu.com/");
-		bootPopup.setActivityUrl("https://www.baidu.com/");
-		bootPopup.setEditPerson("luoyong");
-		bootPopup.setCreateTime(new Date());
-		bootPopup.setUpdateTime(new Date());
+		BeanUtils.copyProperties(BuildUtil.getBootPopup(), bpv);
 	}
 }
