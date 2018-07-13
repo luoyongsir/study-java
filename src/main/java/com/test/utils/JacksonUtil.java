@@ -23,6 +23,7 @@ public final class JacksonUtil {
     private static final Logger LOG = LoggerFactory.getLogger(JacksonUtil.class.getName());
 
     private static ObjectMapper mapper;
+
     static {
         mapper = new ObjectMapper();
         // 设置输入时忽略在JSON字符串中存在但Java对象实际没有的属性
@@ -39,7 +40,7 @@ public final class JacksonUtil {
      */
     public static String toJson(final Object object) {
         try {
-           return mapper.writeValueAsString(object);
+            return mapper.writeValueAsString(object);
         } catch (JsonProcessingException e) {
             LOG.error("对象转json出错：", e);
         }
@@ -136,5 +137,6 @@ public final class JacksonUtil {
         return null;
     }
 
-    private JacksonUtil() {}
+    private JacksonUtil() {
+    }
 }

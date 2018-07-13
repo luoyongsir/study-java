@@ -10,37 +10,59 @@ import java.util.Date;
  */
 public class BootPopupVO {
 
-    /** 主键ID */
+    /**
+     * 主键ID
+     */
     private Integer id;
 
-    /** 状态：0:删除，1:启用，2:下线 */
+    /**
+     * 状态：0:删除，1:启用，2:下线
+     */
     private Byte status;
 
-    /** 启动页名称 */
+    /**
+     * 启动页名称
+     */
     private String popupName;
 
-    /** 开始时间 */
+    /**
+     * 开始时间
+     */
     private Date startTime;
 
-    /** 结束时间 */
+    /**
+     * 结束时间
+     */
     private Date endTime;
 
-    /** 展现时间，单位秒 */
+    /**
+     * 展现时间，单位秒
+     */
     private Byte showTime;
 
-    /** 图片地址 */
+    /**
+     * 图片地址
+     */
     private String picUrl;
 
-    /** 活动链接 */
+    /**
+     * 活动链接
+     */
     private String activityUrl;
 
-    /** 编辑人 */
+    /**
+     * 编辑人
+     */
     private String editPerson;
 
-    /** 创建时间 */
+    /**
+     * 创建时间
+     */
     private Date createTime;
 
-    /** 修改时间 */
+    /**
+     * 修改时间
+     */
     private Date updateTime;
 
     public Integer getId() {

@@ -21,25 +21,25 @@ import java.util.concurrent.TimeUnit;
 @Measurement(iterations = 6, time = 3, timeUnit = TimeUnit.SECONDS)
 public class StringBuilderTest {
 
-	public static void main(String[] args) throws RunnerException {
-		Options options = new OptionsBuilder().include(StringBuilderTest.class.getSimpleName()).forks(2).build();
-		new Runner(options).run();
-	}
+    public static void main(String[] args) throws RunnerException {
+        Options options = new OptionsBuilder().include(StringBuilderTest.class.getSimpleName()).forks(2).build();
+        new Runner(options).run();
+    }
 
-	@Benchmark
-	public void testStringAdd() {
-		String a = "";
-		for (int i = 0; i < 10; i++) {
-			a += i;
-		}
-	}
+    @Benchmark
+    public void testStringAdd() {
+        String a = "";
+        for (int i = 0; i < 10; i++) {
+            a += i;
+        }
+    }
 
-	@Benchmark
-	public void testStringBuilderAdd() {
-		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < 10; i++) {
-			sb.append(i);
-		}
-	}
+    @Benchmark
+    public void testStringBuilderAdd() {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 10; i++) {
+            sb.append(i);
+        }
+    }
 
 }

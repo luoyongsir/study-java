@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentMap;
 
 /**
  * ProtoStuff序列化和反序列化工具类
- * 
+ *
  * @author Luo Yong
  * @dete 2017-03-12
  */
@@ -22,7 +22,7 @@ public final class ProtoStuffUtil {
 
     /**
      * 序列化对象
-     * 
+     *
      * @param t
      * @return
      */
@@ -37,7 +37,7 @@ public final class ProtoStuffUtil {
 
     /**
      * 序列化对象
-     * 
+     *
      * @param t
      * @param buf
      * @return
@@ -53,27 +53,27 @@ public final class ProtoStuffUtil {
 
     /**
      * 序列化列表
-     * 
+     *
      * @param list
      * @return
      */
-	public static <T> byte[] toByteArray(List<T> list) {
-		byte[] byteArray = null;
-		if (list != null && !list.isEmpty()) {
-			Schema<T> schema = getSchema((Class<T>) list.get(0).getClass());
-			try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
-				ProtostuffIOUtil.writeListTo(bos, list, schema, buf(BUF_SIZE * 8));
-				byteArray = bos.toByteArray();
-			} catch (Exception e) {
-				throw new RuntimeException("序列化对象列表(" + list + ")发生异常!", e);
-			}
-		}
-		return byteArray;
-	}
+    public static <T> byte[] toByteArray(List<T> list) {
+        byte[] byteArray = null;
+        if (list != null && !list.isEmpty()) {
+            Schema<T> schema = getSchema((Class<T>) list.get(0).getClass());
+            try (ByteArrayOutputStream bos = new ByteArrayOutputStream()) {
+                ProtostuffIOUtil.writeListTo(bos, list, schema, buf(BUF_SIZE * 8));
+                byteArray = bos.toByteArray();
+            } catch (Exception e) {
+                throw new RuntimeException("序列化对象列表(" + list + ")发生异常!", e);
+            }
+        }
+        return byteArray;
+    }
 
     /**
      * 反序列化对象
-     * 
+     *
      * @param byteArray
      * @param clazz
      * @return
@@ -90,21 +90,21 @@ public final class ProtoStuffUtil {
 
     /**
      * 反序列化列表
-     * 
+     *
      * @param byteArray
      * @param clazz
      * @return
      */
     public static <T> List<T> toList(byte[] byteArray, Class<T> clazz) {
         List<T> list = null;
-		if (byteArray != null && byteArray.length > 0) {
-			try (ByteArrayInputStream bais = new ByteArrayInputStream(byteArray)) {
-				Schema<T> schema = getSchema(clazz);
-				list = ProtostuffIOUtil.parseListFrom(bais, schema);
-			} catch (IOException e) {
-				throw new RuntimeException("反序列化对象列表发生异常!", e);
-			}
-		}
+        if (byteArray != null && byteArray.length > 0) {
+            try (ByteArrayInputStream bais = new ByteArrayInputStream(byteArray)) {
+                Schema<T> schema = getSchema(clazz);
+                list = ProtostuffIOUtil.parseListFrom(bais, schema);
+            } catch (IOException e) {
+                throw new RuntimeException("反序列化对象列表发生异常!", e);
+            }
+        }
         return list;
     }
 
@@ -114,7 +114,7 @@ public final class ProtoStuffUtil {
 
     /**
      * 从缓存获取Schema / 创建Schema，并缓存起来
-     * 
+     *
      * @param clazz
      * @return
      */
@@ -135,9 +135,8 @@ public final class ProtoStuffUtil {
 
     /**
      * 创建序列化所需的buffer
-     * 
-     * @param size
-     *            buffer初始化大小
+     *
+     * @param size buffer初始化大小
      * @return
      */
     private static LinkedBuffer buf(final int size) {
