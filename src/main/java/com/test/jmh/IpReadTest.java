@@ -15,6 +15,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * ip 读取性能测试
  *
+ * Benchmark             Mode  Cnt   Score   Error    Units
+ * IpReadTest.testFast  thrpt    6  51.347 ± 0.561  ops/min
+ * IpReadTest.testIpdb  thrpt    6  31.894 ± 0.921  ops/min
+ *
  * @author luoyong
  * @date 2019/7/2 17:00
  */
