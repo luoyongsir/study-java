@@ -22,6 +22,9 @@ public final class CleanDirs {
     private static final String REG_DIR = "^(.*)(.git|target|.idea)";
     private static final Pattern PATTERN_DIR = Pattern.compile(REG_DIR);
 
+    private CleanDirs() {
+    }
+
     public static void main(String[] args) {
         String[] dirs = {};
         // String[] dirs = {"D:\\Workspaces\\cooperation"};
@@ -103,8 +106,5 @@ public final class CleanDirs {
         }
         // 删除当前目录
         return dirFile.delete();
-    }
-
-    private CleanDirs() {
     }
 }

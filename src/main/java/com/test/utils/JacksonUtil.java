@@ -32,6 +32,9 @@ public final class JacksonUtil {
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
     }
 
+    private JacksonUtil() {
+    }
+
     /**
      * 将对象转换成json
      *
@@ -135,8 +138,5 @@ public final class JacksonUtil {
             LOG.error("json转Map对象出错：", e);
         }
         return null;
-    }
-
-    private JacksonUtil() {
     }
 }

@@ -9,6 +9,7 @@ import org.junit.Test;
  * @date 2017/12/24
  */
 public class IndexOfTest {
+    // @formatter:off
 
     private static final String TEXT2 = "我说道：“爸爸，你走吧。”他望车外看了看，说：“我买几个橘子去。你就在此地，不要走动。”我看那边月台的栅栏外有几个卖东西的等着顾客。走到那边月台，须穿过铁道，须跳下去又爬上去。父亲是一个胖子，走过去自然要费事些。w本来要去的，他不肯，只好让他去。";
 
@@ -74,4 +75,4 @@ public class IndexOfTest {
         long endTime = System.currentTimeMillis();
         System.out.println("indexOfChar 耗时：" + (endTime - starTime) + " 毫秒");
     }
-}
+}// @formatter:on

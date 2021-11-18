@@ -24,13 +24,13 @@ import java.util.stream.Collectors;
 @Measurement(iterations = 6, time = 3, timeUnit = TimeUnit.SECONDS)
 public class StreamTest {
 
+    private static String[] array = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+    private static List<String> list = Arrays.asList(array);
+
     public static void main(String[] args) throws RunnerException {
         Options options = new OptionsBuilder().include(StreamTest.class.getSimpleName()).forks(2).build();
         new Runner(options).run();
     }
-
-    private static String[] array = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
-    private static List<String> list = Arrays.asList(array);
 
     @Benchmark
     public void testStreamAdd() {

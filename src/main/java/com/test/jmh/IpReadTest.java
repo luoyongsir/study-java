@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * ip 读取性能测试
- *
+ * <p>
  * Benchmark             Mode  Cnt   Score   Error    Units
  * IpReadTest.testFast  thrpt    6  51.347 ± 0.561  ops/min
  * IpReadTest.testIpdb  thrpt    6  31.894 ± 0.921  ops/min
@@ -30,12 +30,12 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Benchmark)
 public class IpReadTest {
 
+    private static City db;
+
     public static void main(String[] args) throws RunnerException {
         Options options = new OptionsBuilder().include(IpReadTest.class.getSimpleName()).forks(2).build();
         new Runner(options).run();
     }
-
-    private static City db;
 
     @Setup(Level.Trial)
     public void setup() throws IOException {

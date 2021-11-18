@@ -20,6 +20,12 @@ import java.util.concurrent.ConcurrentMap;
  */
 public final class ProtoStuffUtil {
 
+    private static final int BUF_SIZE = 1024;
+    private static final ConcurrentMap<Class<?>, Schema<?>> SCHEMA = new ConcurrentHashMap<>();
+
+    private ProtoStuffUtil() {
+    }
+
     /**
      * 序列化对象
      *
@@ -108,10 +114,6 @@ public final class ProtoStuffUtil {
         return list;
     }
 
-    private static final int BUF_SIZE = 1024;
-
-    private static final ConcurrentMap<Class<?>, Schema<?>> SCHEMA = new ConcurrentHashMap<>();
-
     /**
      * 从缓存获取Schema / 创建Schema，并缓存起来
      *
@@ -145,8 +147,5 @@ public final class ProtoStuffUtil {
             return buf();
         }
         return LinkedBuffer.allocate(size);
-    }
-
-    private ProtoStuffUtil() {
     }
 }

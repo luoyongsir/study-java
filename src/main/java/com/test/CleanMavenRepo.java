@@ -15,6 +15,9 @@ import java.util.List;
  */
 public final class CleanMavenRepo {
 
+    private CleanMavenRepo() {
+    }
+
     public static void main(String[] args) {
 //        String[] dirs = {};
         String[] dirs = {"D:\\Programs\\maven\\repo"};
@@ -110,8 +113,5 @@ public final class CleanMavenRepo {
             System.out.println("删除文件夹 " + dir);
             baseDir.delete();
         }
-    }
-
-    private CleanMavenRepo() {
     }
 }

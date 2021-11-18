@@ -1,4 +1,3 @@
-
 package com.test.utils;
 
 import ma.glasnost.orika.MapperFacade;
@@ -26,6 +25,9 @@ public final class BeanOrikaMapper {
     static {
         MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
         mapper = mapperFactory.getMapperFacade();
+    }
+
+    private BeanOrikaMapper() {
     }
 
     /**
@@ -87,8 +89,5 @@ public final class BeanOrikaMapper {
      */
     public static <E> Type<E> getType(final Class<E> rawType) {
         return TypeFactory.valueOf(rawType);
-    }
-
-    private BeanOrikaMapper() {
     }
 }

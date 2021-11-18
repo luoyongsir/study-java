@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * 对比测试两种HashMap与EnumMap法的性能
- *
+ * <p>
  * 结果相差一倍
  */
 @BenchmarkMode(Mode.Throughput)
@@ -24,13 +24,14 @@ import java.util.concurrent.TimeUnit;
 @State(Scope.Benchmark)
 public class EnumMapTest {
 
-    public enum TestEnum {
-        ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN;
-    }
-
     private EnumMap<TestEnum, Integer> enumMap;
     private HashMap<TestEnum, Integer> hashEnumKeyMap;
     private HashMap<String, Integer> hashStringKeyMap;
+
+    public static void main(String[] args) throws RunnerException {
+        Options options = new OptionsBuilder().include(EnumMapTest.class.getSimpleName()).forks(2).build();
+        new Runner(options).run();
+    }
 
     @Setup(Level.Trial)
     public void setup() {
@@ -97,9 +98,8 @@ public class EnumMapTest {
         return caculateEnumKeyMap(enumMap);
     }
 
-    public static void main(String[] args) throws RunnerException {
-        Options options = new OptionsBuilder().include(EnumMapTest.class.getSimpleName()).forks(2).build();
-        new Runner(options).run();
+    public enum TestEnum {
+        ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN
     }
 
 }
